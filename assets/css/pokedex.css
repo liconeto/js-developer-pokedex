@@ -127,6 +127,10 @@
     height: 70px;
 }
 
+.buttonDetail {
+    background-color: transparent;
+    border: none;
+}
 .pagination {
     display: flex;
     flex-direction: row;
