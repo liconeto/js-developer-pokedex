@@ -19,12 +19,12 @@ function convertPokemonToLi(pokemon) {
                       .join("")}
                 </ol>
 
-                  <button class="buttonDetail" id="pokemonImgDetailPage" type="button" value="${
+                  <a class="buttonDetail" id="pokemonImgDetailPage"  href="pokemon-detail.html" value="${
                     pokemon.number
                   }">
                     <img src="${pokemon.photo}" alt="${pokemon.name}">
-                  </button>
-                  <butt
+                  </a>
+                  
             </div>
         </li>
     `;
@@ -56,8 +56,7 @@ loadMoreButton.addEventListener("click", () => {
 function loadpokemonDetails(id) {
   const idPokemon = id;
 
-  pokemonImgDetailPage.addEventListener(
-    "click",
-    (HTMLElement.innerHTML = <a href="/pokemon-detail.html"></a>)
-  );
+  pokemonImgDetailPage.addEventListener("click", () => {
+    window.alert(`Esse é o ID :${idPokemon}`);
+  });
 }

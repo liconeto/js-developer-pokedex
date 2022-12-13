@@ -5,13 +5,3 @@ class Pokemon {
   types = [];
   photo;
 }
-
-class detailPokemon {
-  number;
-  hp;
-  attack;
-  defense;
-  speed;
-  specialAttack;
-  specialDefense;
-}
