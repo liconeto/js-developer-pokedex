@@ -19,10 +19,12 @@ function convertPokemonToLi(pokemon) {
                       .join("")}
                 </ol>
 
-                <button class="buttonDetail" id="pokemonImgDetailPage"><img src="${
-                  pokemon.photo
-                }"
-                     alt="${pokemon.name}"></button>
+                  <button class="buttonDetail" id="pokemonImgDetailPage" type="button" value="${
+                    pokemon.number
+                  }">
+                    <img src="${pokemon.photo}" alt="${pokemon.name}">
+                  </button>
+                  <butt
             </div>
         </li>
     `;
@@ -37,10 +39,6 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit);
 
-pokemonImgDetailPage.addEventListener("click", () => {
-  return `<a href="pokemon-detail.html"></a>`;
-});
-
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
   const qtdRecordsWithNexPage = offset + limit;
@@ -54,3 +52,12 @@ loadMoreButton.addEventListener("click", () => {
     loadPokemonItens(offset, limit);
   }
 });
+
+function loadpokemonDetails(id) {
+  const idPokemon = id;
+
+  pokemonImgDetailPage.addEventListener(
+    "click",
+    (HTMLElement.innerHTML = <a href="/pokemon-detail.html"></a>)
+  );
+}

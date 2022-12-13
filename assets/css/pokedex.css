@@ -128,8 +128,8 @@
 }
 
 .buttonDetail {
-    background-color: transparent;
-    border: none;
+    /*background-color: transparent;
+    border: none;*/
 }
 .pagination {
     display: flex;
