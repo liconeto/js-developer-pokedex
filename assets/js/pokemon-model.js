@@ -5,3 +5,12 @@ class Pokemon {
   types = [];
   photo;
 }
+
+class PokemonDetail {
+  attack;
+  defense;
+  speed;
+  specialAttack;
+  specialDefense;
+  abilities = [];
+}
