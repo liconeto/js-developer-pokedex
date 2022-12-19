@@ -128,9 +128,32 @@
 }
 
 .buttonDetail {
-    /*background-color: transparent;
-    border: none;*/
+    background-color: transparent;
+    border: none;
 }
+
+.pokemonStat {
+    text-transform: capitalize;
+}
+.pokemonStat .abilities{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+}
+.pokemonStat .stats{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .pagination {
     display: flex;
     flex-direction: row;

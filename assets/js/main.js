@@ -1,8 +1,5 @@
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
-const pokemonImgDetailPage = document.getElementById("pokemonImgDetailPage");
-const loadPreviusButton = document.getElementById("loadPreviusButton");
-const loadNextButton = document.getElementById("loadNextButton");
 
 const maxRecords = 151;
 const limit = 10;
@@ -21,7 +18,7 @@ function convertPokemonToLi(pokemon) {
                       .join("")}
                 </ol>
 
-                  <a class="buttonDetail" id="pokemonImgDetailPage"  href="pokemon-detail.html" value="${
+                  <a class="buttonDetail" id="pokemonImgDetailPage"  href="pokemon-detail.html/?pokemonId=${
                     pokemon.number
                   }">
                     <img src="${pokemon.photo}" alt="${pokemon.name}">
@@ -54,11 +51,3 @@ loadMoreButton.addEventListener("click", () => {
     loadPokemonItens(offset, limit);
   }
 });
-
-function loadpokemonDetails(id) {
-  const idPokemon = id;
-
-  pokemonImgDetailPage.addEventListener("click", () => {
-    window.alert(`Esse é o ID :${idPokemon}`);
-  });
-}

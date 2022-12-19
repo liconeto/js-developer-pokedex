@@ -7,10 +7,6 @@ class Pokemon {
 }
 
 class PokemonDetail {
-  attack;
-  defense;
-  speed;
-  specialAttack;
-  specialDefense;
+  stats = [];
   abilities = [];
 }

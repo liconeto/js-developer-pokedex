@@ -33,12 +33,20 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     .then((pokemonsDetails) => pokemonsDetails);
 };
 
-function getPokemonStats(pokemon) {
-  const pokemonDetail = new PokemonDetail();
+pokeApi.getPokemonStats = (pokemon) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
 
   return fetch(url)
     .then((response) => response.json())
-    .then((body) => body.results)
-    .then(console.log(results));
+    .then((jsonData) => ConvertPokeApiDetails(jsonData))
+    .then((valueData) => valueData);
+};
+
+function ConvertPokeApiDetails(pokemonBody) {
+  const pokemonDetail = new PokemonDetail();
+
+  pokemonDetail.stats = pokemonBody.stats;
+  pokemonDetail.abilities = pokemonBody.abilities;
+
+  return pokemonDetail;
 }
