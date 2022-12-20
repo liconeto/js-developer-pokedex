@@ -45,8 +45,17 @@ pokeApi.getPokemonStats = (pokemon) => {
 function ConvertPokeApiDetails(pokemonBody) {
   const pokemonDetail = new PokemonDetail();
 
+  const types = pokemonBody.types.map((typeSlot) => typeSlot.type.name);
+  const [type] = types;
+
+  pokemonDetail.number = pokemonBody.id;
+  pokemonDetail.name = pokemonBody.name;
   pokemonDetail.stats = pokemonBody.stats;
   pokemonDetail.abilities = pokemonBody.abilities;
+  pokemonDetail.photo = pokemonBody.sprites.other.dream_world.front_default;
+
+  pokemonDetail.types = types;
+  pokemonDetail.type = type;
 
   return pokemonDetail;
 }

@@ -7,6 +7,11 @@ class Pokemon {
 }
 
 class PokemonDetail {
+  number;
+  name;
+  photo;
   stats = [];
   abilities = [];
+  types = [];
+  type;
 }

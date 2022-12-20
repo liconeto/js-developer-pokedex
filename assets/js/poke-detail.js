@@ -3,23 +3,29 @@ const loadNextButton = document.getElementById("loadNextButton");
 const pokemonData = document.getElementById("pokemonData");
 
 const urlParams = new URLSearchParams(window.location.search);
-const pokemonId = urlParams.get("pokemonId");
+let pokemonId = urlParams.get("pokemonId");
 
 function pokemonToLi(pokemonId) {
   return `
-        <li class="pokemonStat ">
-            <div class="detail">
-            
-                <ul class='abilities'>
+        <li class="pokemon ${pokemonId.type}">
+            <span class="number">#${pokemonId.number}</span>
+            <span class="name">${pokemonId.name}</span>
+            <div class="detailAll">
+            <img src="${pokemonId.photo}" alt="${pokemonId.name}">
+            <div>
+              <span class="name">Abilities</span>
+              <ul class='abilities'>
                 ${pokemonId.abilities
                   .map(
                     (ability) =>
                       `<li class='ablilty'>${ability.ability.name}</li>`
                   )
                   .join("")}
-                </ul>
-            
+              </ul>
+            </div>
+            <div>
                 <ol class="stats">
+                <span class="name">Base Stats</span>
                 ${pokemonId.stats
                   .map(
                     (stat) =>
@@ -28,6 +34,7 @@ function pokemonToLi(pokemonId) {
                   .join("")}
 
                 </ol>
+            </div>
             </div>
         </li>
     `;
@@ -38,8 +45,20 @@ function loadpokemonDetails(id) {
 
   pokeApi.getPokemonStats(idPokemon).then((pokemonStat) => {
     const newHtml = pokemonToLi(pokemonStat);
-    pokemonData.innerHTML += newHtml;
+    pokemonData.innerHTML = newHtml;
   });
 }
 
 loadpokemonDetails(pokemonId);
+
+loadPreviusButton.addEventListener("click", () => {
+  let pokemonP = urlParams.set("pokemonId", parseInt(pokemonId) - 1);
+
+  loadpokemonDetails(pokemonP);
+});
+
+loadNextButton.addEventListener("click", () => {
+  let pokemonN = urlParams.set("pokemonId", parseInt(pokemonId) + 1);
+
+  loadpokemonDetails(pokemonN);
+});
